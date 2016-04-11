@@ -1,17 +1,23 @@
 env:
-  - TEST_SUITE=seneca-postgres-store
+#  - TEST_SUITE=seneca-postgres-store
+  - TEST_SUITE=seneca-mem-store
+  - TEST_SUITE=seneca-transport
 
 language: node_js
 sudo: false
 
+cache:
+  directories:
+  - node_modules
+
 node_js:
   - '5'
 
-addons:
-  postgresql: "9.4"
+# addons:
+  # postgresql: "9.4"
 
-services:
-  - postgresql
+# services:
+  # - postgresql
 
-before_script:
-  - psql -U postgres -f docker/dbschema.sql
+# before_script:
+  # - psql -U postgres -f docker/dbschema.sql

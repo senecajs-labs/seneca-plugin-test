@@ -1,0 +1,30 @@
+{
+  "name": "seneca-plugin-test",
+  "version": "0.0.1",
+  "description": "automatic plugin test",
+  "main": "index.js",
+  "scripts": {
+    "env": "env",
+    "clone": "git clone https://github.com/senecajs/$TEST_SUITE",
+    "verify": "cd ./$TEST_SUITE/ && npm i &&  npm run test",
+    "test": "npm run clone && npm run verify",
+    "test:local": "TEST_SUITE=seneca-postgres-store npm t"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihaidma/seneca-plugin-test.git"
+  },
+  "keywords": [
+    "seneca",
+    "plugin",
+    "test"
+  ],
+  "author": "Mihai Dima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mihaidma/seneca-plugin-test/issues"
+  },
+  "homepage": "https://github.com/mihaidma/seneca-plugin-test#readme",
+  "dependencies": {
+  }
+}

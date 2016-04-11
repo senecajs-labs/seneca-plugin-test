@@ -4,11 +4,11 @@
   "description": "automatic plugin test",
   "main": "index.js",
   "scripts": {
-    "env": "env",
     "clone": "git clone https://github.com/senecajs/$TEST_SUITE",
-    "verify": "cd ./$TEST_SUITE/ && npm i &&  npm run test",
+    "seneca": "",
+    "verify": "cd ./$TEST_SUITE/ && npm i && npm install https://github.com/senecajs/$SENECA_VER && npm run test",
     "test": "npm run clone && npm run verify",
-    "test:local": "TEST_SUITE=seneca-postgres-store npm t"
+    "test:local": "TEST_SUITE=seneca-store-test SENECA_VER=seneca#v1.3.0 npm t"
   },
   "repository": {
     "type": "git",

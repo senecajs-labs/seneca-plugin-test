@@ -1,10 +1,10 @@
 env:
   global:
-    SENECA_VER=seneca#v1.3.0
+    - SENECA_VER=seneca#v1.3.0
   matrix:
-#  - TEST_SUITE=seneca-postgres-store
-  - TEST_SUITE=seneca-mem-store
-  - TEST_SUITE=seneca-store-test
+    # - TEST_SUITE=seneca-mem-store
+    # - TEST_SUITE=seneca-store-test
+    - TEST_SUITE=seneca-postgres-store
 
 # The generated test matrix env variables will be:
   # - SENECA_VER=seneca#v1.3.0 TEST_SUITE=seneca-mem-store
@@ -19,13 +19,9 @@ cache:
 
 node_js:
   - '5'
-  - '4'
 
-# addons:
-  # postgresql: "9.4"
+addons:
+  postgresql: "9.4"
 
-# services:
-  # - postgresql
-
-# before_script:
-  # - psql -U postgres -f docker/dbschema.sql
+services:
+  - postgresql

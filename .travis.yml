@@ -1,14 +1,18 @@
 env:
   global:
     - SENECA_VER=seneca#v1.3.0
-  matrix:
-    # - TEST_SUITE=seneca-mem-store
-    # - TEST_SUITE=seneca-store-test
-    - TEST_SUITE=seneca-postgres-store
 
-# The generated test matrix env variables will be:
+  matrix:
+    - TEST_SUITE=seneca-postgres-store
+    - TEST_SUITE=seneca-mem-store
+    - TEST_SUITE=seneca-store-test
+    include:
+      - SENECA_VER=seneca#v1.2.0
+
+# It will generate a test matrix with variable mixes like:
   # - SENECA_VER=seneca#v1.3.0 TEST_SUITE=seneca-mem-store
   # - SENECA_VER=seneca#v1.3.0 TEST_SUITE=seneca-transport
+  # ...
 
 language: node_js
 sudo: false
@@ -19,6 +23,7 @@ cache:
 
 node_js:
   - '5'
+  - '4'
 
 addons:
   postgresql: "9.4"

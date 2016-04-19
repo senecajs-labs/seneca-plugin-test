@@ -1,16 +1,29 @@
 env:
   global:
-    - SENECA_VER=seneca#v1.3.0
+    # get the latest code from master
+    # - SENECA_VER=
+    # to clone a specific tagged version set the version like the following:
+    - SENECA_VER=#v1.3.0
 
   matrix:
-    - TEST_SUITE=seneca-postgres-store
+    # plugins to test
     - TEST_SUITE=seneca-mem-store
     - TEST_SUITE=seneca-store-test
-
-# It will generate a test matrix with variable mixes like:
-  # - SENECA_VER=seneca#v1.3.0 TEST_SUITE=seneca-mem-store
-  # - SENECA_VER=seneca#v1.3.0 TEST_SUITE=seneca-transport
-  # ...
+    - TEST_SUITE=seneca-postgres-store
+    # - TEST_SUITE=seneca-mongo-store
+    # - TEST_SUITE=seneca-mysql-store
+    # - TEST_SUITE=seneca-redis-store
+    # - TEST_SUITE=seneca-level-store
+    - TEST_SUITE=seneca-user
+    - TEST_SUITE=seneca-auth
+    # - TEST_SUITE=chairo
+    - TEST_SUITE=seneca-web
+    # - TEST_SUITE=seneca-redis-cache
+    # - TEST_SUITE=seneca-cache
+    # - TEST_SUITE=seneca-rethinkdb-store
+    # - TEST_SUITE=seneca-amqp-transport
+    # - TEST_SUITE=seneca-mail
+    # - TEST_SUITE=seneca-redis-queue-transport
 
 language: node_js
 sudo: false
@@ -20,7 +33,6 @@ cache:
   - node_modules
 
 node_js:
-  - '5'
   - '4'
 
 addons:

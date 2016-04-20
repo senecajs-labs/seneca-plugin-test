@@ -25,6 +25,13 @@ env:
     # - TEST_SUITE=seneca-mail
     # - TEST_SUITE=seneca-redis-queue-transport
 
+before_script:
+  - git clone https://github.com/senecajs/$TEST_SUITE
+  - if [ $TEST_SUITE = 'seneca-postgres-store' ]; then psql -U postgres -f seneca-postgres-store/docker/dbschema.sql ; fi
+  - cd ./$TEST_SUITE/
+  - npm i
+  - npm install https://github.com/senecajs/seneca$SENECA_VER
+
 language: node_js
 sudo: false
 

@@ -4,11 +4,7 @@
   "description": "Automatic Seneca plugin test",
   "main": "index.js",
   "scripts": {
-    "clone": "git clone https://github.com/senecajs/$TEST_SUITE",
-    "loadschema:postgres":"if [ $TEST_SUITE = 'seneca-postgres-store' ]; then psql -U postgres -f seneca-postgres-store/docker/dbschema.sql ; fi",
-    "loadschema": "npm run loadschema:postgres",
-    "verify": "cd ./$TEST_SUITE/ && npm i && npm install https://github.com/senecajs/seneca$SENECA_VER && npm run test",
-    "test": "npm run clone && npm run loadschema && npm run verify",
+    "test": "npm run test",
     "test:local": "TEST_SUITE=seneca-store-test SENECA_VER=#v1.3.0 npm t"
   },
   "repository": {

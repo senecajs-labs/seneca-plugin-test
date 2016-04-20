@@ -27,7 +27,7 @@ Example: test all plugins against Seneca 1.3.0
 
 env:
   global:
-    - SENECA_VER=seneca#v1.3.0
+    - SENECA_VER=#v1.3.0
 ...
 
 ```
@@ -36,7 +36,16 @@ The `matrix` section specifies the plugins to be tested.
 The plugin name must match the repo name from github.
 The plugins must be located under the SenecaJS organization on github.
 
+```
+Example:
+matrix:
+  # plugins to test
+  - TEST_SUITE=seneca-mem-store
+  - TEST_SUITE=seneca-store-test
+```
+
 The `node_js` specifies the node versions against which the tests to be run.
+
 ```
 Example:
 node_js:
@@ -45,7 +54,6 @@ node_js:
 ```
 
 If a store plugin is tested the database must be specified as addon. Also the database version can be specified.
-
 
 ```
 Example:
@@ -57,7 +65,26 @@ services:
   - postgresql
 ```
 
+Loading a schema in the database is done in the `before_script` section. The schema must be already downloaded on the local system.
+
+```
+Example:
+before_script:
+  - if [ $TEST_SUITE = 'seneca-postgres-store' ]; then psql -U postgres -f seneca-postgres-store/docker/dbschema.sql ; fi
+```
+
 For more details related to Travis config file see [Building a Node.js project][travis-node].
+
+## Running on local
+Travis CI can be run also on a local docker container
+The Travis Docker container can be started and stopped on your local system with
+
+```sh
+npm run start
+npm run stop
+```
+
+See the official docs for more details [Travis Docker][travis-docker], [Travis Build][travis-build]
 
 ## Contributing
 We encourage participation. If you feel you can help in any way, be it with
@@ -72,6 +99,8 @@ Copyright Mihai Dima and other contributors 2016, Licensed under [MIT][].
 [travis-badge]: https://api.travis-ci.org/senecajs/seneca-postgres-store.svg
 [travis-url]: https://travis-ci.org/senecajs/seneca-postgres-store
 [travis-node]: https://docs.travis-ci.com/user/languages/javascript-with-nodejs
+[travis-docker]:https://docs.travis-ci.com/user/common-build-problems/#Troubleshooting-Locally-in-a-Docker-Image
+[travis-build]:https://github.com/travis-ci/travis-build#use-as-addon-for-cli
 [david-badge]: https://david-dm.org/senecajs/seneca-postgres-store.svg
 [david-url]: https://david-dm.org/senecajs/seneca-postgres-store
 [gitter-badge]: https://badges.gitter.im/Join%20Chat.svg

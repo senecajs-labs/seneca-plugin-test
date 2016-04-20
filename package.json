@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test",
-    "test:local": "TEST_SUITE=seneca-store-test SENECA_VER=#v1.3.0 npm t"
+    "start": "docker-compose up -d",
+    "stop": "docker-compose kill"
   },
   "repository": {
     "type": "git",

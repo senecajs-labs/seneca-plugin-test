@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mihaidma/seneca-plugin-test.git"
+    "url": "git+https://github.com/senecajs/seneca-plugin-test.git"
   },
   "keywords": [
     "seneca",
@@ -20,9 +20,9 @@
   "author": "Mihai Dima",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mihaidma/seneca-plugin-test/issues"
+    "url": "https://github.com/senecajs/seneca-plugin-test/issues"
   },
-  "homepage": "https://github.com/mihaidma/seneca-plugin-test#readme",
+  "homepage": "https://github.com/senecajs/seneca-plugin-test#readme",
   "dependencies": {
   }
 }

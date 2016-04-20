@@ -1,12 +1,10 @@
 ![Seneca](http://senecajs.org/files/assets/seneca-logo.png)
-> A [Seneca.js](http://senecajs.org) data storage plugin
+> A [Seneca.js](http://senecajs.org) plugin tester
 
 seneca-plugin-test
 =======================
 
-[![npm version][npm-badge]][npm-url]
 [![Build Status][travis-badge]][travis-url]
-[![Dependency Status][david-badge]][david-url]
 [![Gitter][gitter-badge]][gitter-url]
 
 seneca-plugin-test is running the Seneca from the github master branch against a group of Seneca plugins as a preliminary verification step before publishing.
@@ -94,15 +92,11 @@ examples, extra testing, or new features please get in touch.
 Copyright Mihai Dima and other contributors 2016, Licensed under [MIT][].
 
 [MIT]: ./LICENSE
-[npm-badge]: https://img.shields.io/npm/v/seneca-postgres-store.svg
-[npm-url]: https://npmjs.com/package/seneca-postgres-store
-[travis-badge]: https://api.travis-ci.org/senecajs/seneca-postgres-store.svg
-[travis-url]: https://travis-ci.org/senecajs/seneca-postgres-store
+[travis-badge]: https://api.travis-ci.org/senecajs/seneca-plugin-test.svg
+[travis-url]: https://travis-ci.org/senecajs/seneca-plugin-test
 [travis-node]: https://docs.travis-ci.com/user/languages/javascript-with-nodejs
 [travis-docker]:https://docs.travis-ci.com/user/common-build-problems/#Troubleshooting-Locally-in-a-Docker-Image
 [travis-build]:https://github.com/travis-ci/travis-build#use-as-addon-for-cli
-[david-badge]: https://david-dm.org/senecajs/seneca-postgres-store.svg
-[david-url]: https://david-dm.org/senecajs/seneca-postgres-store
 [gitter-badge]: https://badges.gitter.im/Join%20Chat.svg
 [gitter-url]: https://gitter.im/senecajs/seneca
 [seneca]: http://senecajs.org/

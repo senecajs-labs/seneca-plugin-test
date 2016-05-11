@@ -21,6 +21,10 @@ env:
     - TEST_SUITE=seneca-transport
     - TEST_SUITE=seneca-repl
     - TEST_SUITE=seneca-cache
+    - TEST_SUITE=seneca-quartz-scheduler
+    - TEST_SUITE=seneca-redis-cache
+    - TEST_SUITE=seneca-redis-store
+    - TEST_SUITE=seneca-sqlite-store
 
 before_script:
   - git clone https://github.com/senecajs/$TEST_SUITE

@@ -58,3 +58,4 @@ services:
   - postgresql
   - mysql
   - redis
+  - mongodb

@@ -35,7 +35,8 @@ env:
 before_script:
   - git clone https://github.com/$TEST_SUITE
   - if [ $TEST_SUITE = 'seneca-postgres-store' ]; then psql -U postgres -f seneca-postgres-store/docker/dbschema.sql ; fi
-  - cd ./$TEST_SUITE/
+  - if [ $TEST_SUITE = 'seneca-mysql-store' ]; then mysql -h localhost -u root --password="" seneca-mysql-store/docker/schema.sql ; fi
+  - cd $(basename $TEST_SUITE)`
   - npm i
   - npm install https://github.com/senecajs/seneca$SENECA_VER
 
@@ -54,3 +55,4 @@ addons:
 
 services:
   - postgresql
+  - mysql

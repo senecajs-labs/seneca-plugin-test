@@ -7,27 +7,33 @@ env:
 
   matrix:
     # plugins to test
-    - TEST_SUITE=seneca-mem-store
-    - TEST_SUITE=seneca-store-test
-    - TEST_SUITE=seneca-postgres-store
-    - TEST_SUITE=seneca-level-store
-    - TEST_SUITE=seneca-mysql-store
-    - TEST_SUITE=seneca-user
-    - TEST_SUITE=seneca-auth
-    - TEST_SUITE=seneca-web
-    - TEST_SUITE=seneca
-    - TEST_SUITE=seneca-basic
-    - TEST_SUITE=seneca-entity
-    - TEST_SUITE=seneca-transport
-    - TEST_SUITE=seneca-repl
-    - TEST_SUITE=seneca-cache
-    - TEST_SUITE=seneca-quartz-scheduler
-    - TEST_SUITE=seneca-redis-cache
-    - TEST_SUITE=seneca-redis-store
-    - TEST_SUITE=seneca-sqlite-store
+    - TEST_SUITE=senecajs/seneca-postgres-store
+    - TEST_SUITE=Concorda/seneca-auth
+    - TEST_SUITE=rjrodger/seneca-balance-client
+    - TEST_SUITE=senecajs/seneca-basic
+    - TEST_SUITE=senecajs/seneca-cache
+    - TEST_SUITE=senecajs/seneca-entity
+    - TEST_SUITE=rjrodger/seneca-error-test
+    - TEST_SUITE=rjrodger/seneca-jsonfile-store
+    - TEST_SUITE=senecajs/seneca-level-store
+    - TEST_SUITE=senecajs/seneca-mem-store
+    - TEST_SUITE=rjrodger/seneca-mesh
+    - TEST_SUITE=senecajs/seneca-mysql-store
+    - TEST_SUITE=senecajs/seneca-quartz-scheduler
+    - TEST_SUITE=senecajs/seneca-redis-cache
+    - TEST_SUITE=senecajs/seneca-repl
+    - TEST_SUITE=senecajs/seneca-store-test
+    - TEST_SUITE=senecajs/seneca-transport
+    - TEST_SUITE=rjrodger/seneca-transport-test
+    - TEST_SUITE=senecajs/seneca-user
+    - TEST_SUITE=senecajs/seneca-web
+    - TEST_SUITE=senecajs/seneca-redis-store
+    - TEST_SUITE=senecajs/seneca-sqlite-store
+    - TEST_SUITE=senecajs/seneca-mongo-store
+    - TEST_SUITE=senecajs/seneca
 
 before_script:
-  - git clone https://github.com/senecajs/$TEST_SUITE
+  - git clone https://github.com/$TEST_SUITE
   - if [ $TEST_SUITE = 'seneca-postgres-store' ]; then psql -U postgres -f seneca-postgres-store/docker/dbschema.sql ; fi
   - cd ./$TEST_SUITE/
   - npm i

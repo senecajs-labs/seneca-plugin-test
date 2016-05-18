@@ -57,3 +57,4 @@ addons:
 services:
   - postgresql
   - mysql
+  - redis

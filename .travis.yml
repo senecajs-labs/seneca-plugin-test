@@ -56,8 +56,8 @@ before_script:
       npm uninstall seneca;
       npm install https://github.com/$SENECA_VER;
     fi
-  - if [ $TEST_SUITE_FOLDER = 'seneca-postgres-store' ]; then psql -U postgres -f seneca-postgres-store/docker/dbschema.sql ; fi
-  - if [ $TEST_SUITE_FOLDER = 'seneca-mysql-store' ]; then mysql -h localhost -u root --password="" seneca-mysql-store/docker/schema.sql ; fi
+  - if [ $TEST_SUITE_FOLDER = 'seneca-postgres-store' ]; then psql -U postgres -f docker/dbschema.sql ; fi
+  - if [ $TEST_SUITE_FOLDER = 'seneca-mysql-store' ]; then mysql -h localhost -u root --password="" docker/schema.sql ; fi
 
 cache:
   directories:

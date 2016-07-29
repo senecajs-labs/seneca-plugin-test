@@ -20,7 +20,7 @@
   "author": "Mihai Dima",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/senecajs/seneca-plugin-test/issues"
+    "url": "https://github.com/senecajs-labs/seneca-plugin-test/issues"
   },
   "homepage": "https://github.com/senecajs/seneca-plugin-test#readme",
   "dependencies": {

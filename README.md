@@ -92,8 +92,8 @@ examples, extra testing, or new features please get in touch.
 Copyright Mihai Dima and other contributors 2016, Licensed under [MIT][].
 
 [MIT]: ./LICENSE
-[travis-badge]: https://api.travis-ci.org/senecajs/seneca-plugin-test.svg
-[travis-url]: https://travis-ci.org/senecajs/seneca-plugin-test
+[travis-badge]: https://api.travis-ci.org/senecajs-labs/seneca-plugin-test.svg
+[travis-url]: https://travis-ci.org/senecajs-labs/seneca-plugin-test
 [travis-node]: https://docs.travis-ci.com/user/languages/javascript-with-nodejs
 [travis-docker]:https://docs.travis-ci.com/user/common-build-problems/#Troubleshooting-Locally-in-a-Docker-Image
 [travis-build]:https://github.com/travis-ci/travis-build#use-as-addon-for-cli

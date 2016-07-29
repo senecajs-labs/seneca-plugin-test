@@ -7,7 +7,7 @@ seneca-plugin-test
 [![Build Status][travis-badge]][travis-url]
 [![Gitter][gitter-badge]][gitter-url]
 
-seneca-plugin-test is running the Seneca from the github master branch against a group of Seneca plugins as a preliminary verification step before publishing.
+Seneca-plugin-test is running the Seneca from the github master branch against a group of Seneca plugins as a preliminary verification step before publishing.
 
 ## Usage
 The tests are started manually from the Travis interface or are automatically triggered when a repo file is pushed or a PR is made.

@@ -1,42 +1,60 @@
 env:
   global:
     # get the latest code from master
-    # - SENECA_VER=
+    - SENECA_VER=
     # to clone a specific tagged version set the version like the following:
-    - SENECA_VER=#v1.3.0
+    # - SENECA_VER=#v1.3.0
 
   matrix:
     # plugins to test
-    - TEST_SUITE=senecajs/seneca-postgres-store
-    - TEST_SUITE=Concorda/seneca-auth
+    - TEST_SUITE=senecajs/gate-executor
+    - TEST_SUITE=senecajs/ramanujan
+    - TEST_SUITE=senecajs/seneca-auth
     - TEST_SUITE=rjrodger/seneca-balance-client
     - TEST_SUITE=senecajs/seneca-basic
     - TEST_SUITE=senecajs/seneca-cache
+    - TEST_SUITE=rjrodger/seneca-cache-test
     - TEST_SUITE=senecajs/seneca-entity
-    - TEST_SUITE=rjrodger/seneca-error-test
     - TEST_SUITE=rjrodger/seneca-jsonfile-store
     - TEST_SUITE=senecajs/seneca-level-store
     - TEST_SUITE=senecajs/seneca-mem-store
     - TEST_SUITE=rjrodger/seneca-mesh
+    - TEST_SUITE=senecajs/seneca-mongo-store
+    - TEST_SUITE=senecajs/seneca-mvp
     - TEST_SUITE=senecajs/seneca-mysql-store
-    - TEST_SUITE=senecajs/seneca-quartz-scheduler
+    - TEST_SUITE=senecajs/seneca-postgres-store
+    - TEST_SUITE=senecajs/seneca-rabbitmq-transport
     - TEST_SUITE=senecajs/seneca-redis-cache
+    - TEST_SUITE=senecajs/seneca-redis-queue-transport
+    - TEST_SUITE=senecajs/seneca-redis-store
+    - TEST_SUITE=senecajs/seneca-registry
     - TEST_SUITE=senecajs/seneca-repl
     - TEST_SUITE=senecajs/seneca-store-test
     - TEST_SUITE=senecajs/seneca-transport
     - TEST_SUITE=rjrodger/seneca-transport-test
     - TEST_SUITE=senecajs/seneca-user
     - TEST_SUITE=senecajs/seneca-web
-    - TEST_SUITE=senecajs/seneca-redis-store
-    - TEST_SUITE=senecajs/seneca-sqlite-store
-    - TEST_SUITE=senecajs/seneca-mongo-store
+
     - TEST_SUITE=senecajs/seneca
 
 before_script:
+  - if [[ $TRAVIS_NODE_VERSION == "6" ]]; then export LAB_FLAGS="--leaks"; else export LAB_FLAGS=""; fi
+  - TEST_SUITE_FOLDER=$(basename $TEST_SUITE)
+  - echo LAB_FLAGS:$LAB_FLAGS
+  - echo TEST_SUITE:$TEST_SUITE
+  - echo TEST_SUITE_FOLDER:$TEST_SUITE_FOLDER
+  - if [ $TEST_SUITE_FOLDER != 'seneca' ]; then
+      git clone https://github.com/$TEST_SUITE;
+      if [ $TEST_SUITE_FOLDER = 'seneca-postgres-store' ]; then psql -U postgres -f seneca-postgres-store/docker/dbschema.sql ; fi
+      if [ $TEST_SUITE_FOLDER = 'seneca-mysql-store' ]; then mysql -h localhost -u root --password="" seneca-mysql-store/docker/schema.sql ; fi
+      cd $TEST_SUITE_FOLDER;
+      npm i;
+      npm uninstall seneca;
+      npm install https://github.com/senecajs/seneca$SENECA_VER;
+    fi
+before_script:
   - TEST_SUITE_FOLDER=$(basename $TEST_SUITE)
   - git clone https://github.com/$TEST_SUITE
-  - if [ $TEST_SUITE_FOLDER = 'seneca-postgres-store' ]; then psql -U postgres -f seneca-postgres-store/docker/dbschema.sql ; fi
-  - if [ $TEST_SUITE_FOLDER = 'seneca-mysql-store' ]; then mysql -h localhost -u root --password="" seneca-mysql-store/docker/schema.sql ; fi
   - cd $TEST_SUITE_FOLDER
   - npm i
   - npm install https://github.com/senecajs/seneca$SENECA_VER

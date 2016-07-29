@@ -1,9 +1,9 @@
 env:
   global:
     # get the latest code from master
-    - SENECA_VER=
+    - SENECA_VER=mihaidma/seneca
     # to clone a specific tagged version set the version like the following:
-    # - SENECA_VER=#v1.3.0
+    # - SENECA_VER=senecajs/seneca#v1.3.0
 
   matrix:
     # plugins to test
@@ -50,14 +50,8 @@ before_script:
       cd $TEST_SUITE_FOLDER;
       npm i;
       npm uninstall seneca;
-      npm install https://github.com/senecajs/seneca$SENECA_VER;
+      npm install https://github.com/$SENECA_VER;
     fi
-before_script:
-  - TEST_SUITE_FOLDER=$(basename $TEST_SUITE)
-  - git clone https://github.com/$TEST_SUITE
-  - cd $TEST_SUITE_FOLDER
-  - npm i
-  - npm install https://github.com/senecajs/seneca$SENECA_VER
 
 language: node_js
 sudo: false

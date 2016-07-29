@@ -52,12 +52,6 @@ before_script:
       npm uninstall seneca;
       npm install https://github.com/$SENECA_VER;
     fi
-before_script:
-  - TEST_SUITE_FOLDER=$(basename $TEST_SUITE)
-  - git clone https://github.com/$TEST_SUITE
-  - cd $TEST_SUITE_FOLDER
-  - npm i
-  - npm install https://github.com/senecajs/seneca$SENECA_VER
 
 language: node_js
 sudo: false

@@ -14,30 +14,34 @@ env:
   matrix:
     # plugins to test
    - TEST_SUITE=senecajs/gate-executor
-   - TEST_SUITE=senecajs/ramanujan
+   # - TEST_SUITE=senecajs/ramanujan
+   - TEST_SUITE=senecajs/seneca-amqp-transport
    - TEST_SUITE=senecajs/seneca-auth
    - TEST_SUITE=senecajs/seneca-balance-client
    - TEST_SUITE=senecajs/seneca-basic
+   - TEST_SUITE=senecajs/seneca-beanstalk-transport
    - TEST_SUITE=senecajs/seneca-cache
    - TEST_SUITE=senecajs/seneca-cache-test
    - TEST_SUITE=senecajs/seneca-entity
+   - TEST_SUITE=senecajs/seneca-joi
    - TEST_SUITE=senecajs/seneca-jsonfile-store
    - TEST_SUITE=senecajs/seneca-level-store
    - TEST_SUITE=senecajs/seneca-mem-store
    - TEST_SUITE=senecajs/seneca-mesh
    - TEST_SUITE=senecajs/seneca-mongo-store
    # - TEST_SUITE=senecajs/seneca-mvp
-   #ok - TEST_SUITE=senecajs/seneca-mysql-store
-   #ok - TEST_SUITE=senecajs/seneca-postgres-store
-   - TEST_SUITE=senecajs/seneca-rabbitmq-transport
+   - TEST_SUITE=senecajs/seneca-mysql-store
+   - TEST_SUITE=senecajs/seneca-parambulator
+   - TEST_SUITE=senecajs/seneca-postgres-store
    - TEST_SUITE=senecajs/seneca-redis-cache
    - TEST_SUITE=senecajs/seneca-redis-queue-transport
-   #ok - TEST_SUITE=senecajs/seneca-redis-store
+   - TEST_SUITE=senecajs/seneca-redis-pubsub-transport
+   - TEST_SUITE=senecajs/seneca-redis-store
    - TEST_SUITE=senecajs/seneca-registry
    - TEST_SUITE=senecajs/seneca-repl
    - TEST_SUITE=senecajs/seneca-store-test
    - TEST_SUITE=senecajs/seneca-transport
-   # - TEST_SUITE=senecajs/seneca-transport-test
+   - TEST_SUITE=senecajs/seneca-transport-test
    - TEST_SUITE=senecajs/seneca-user
    - TEST_SUITE=senecajs/seneca-web
 

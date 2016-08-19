@@ -49,9 +49,7 @@ env:
 
 before_script:
   - echo SENECA_VER:$SENECA_VER
-  - if [[ $TRAVIS_NODE_VERSION == "6" ]]; then export LAB_FLAGS="--leaks"; else export LAB_FLAGS=""; fi
   - TEST_SUITE_FOLDER=$(basename $TEST_SUITE)
-  - echo LAB_FLAGS:$LAB_FLAGS
   - echo TEST_SUITE:$TEST_SUITE
   - echo TEST_SUITE_FOLDER:$TEST_SUITE_FOLDER
   - if [ $TEST_SUITE_FOLDER != 'seneca' ]; then

@@ -7,7 +7,7 @@ node_js:
 env:
   global:
     # get the latest code from master
-    - SENECA_VER=mihaidma/seneca
+    - SENECA_VER=senecajs/seneca#seneca3
     # to clone a specific tagged version set the version like the following:
     # - SENECA_VER=senecajs/seneca#v1.3.0
 
@@ -48,6 +48,7 @@ env:
 #    - TEST_SUITE=senecajs/seneca
 
 before_script:
+  - echo SENECA_VER:$SENECA_VER
   - if [[ $TRAVIS_NODE_VERSION == "6" ]]; then export LAB_FLAGS="--leaks"; else export LAB_FLAGS=""; fi
   - TEST_SUITE_FOLDER=$(basename $TEST_SUITE)
   - echo LAB_FLAGS:$LAB_FLAGS

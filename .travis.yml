@@ -46,6 +46,8 @@ env:
     - TEST_SUITE=senecajs/seneca-logstash-logger
     - TEST_SUITE=senecajs/seneca-pino-logger
     - TEST_SUITE=senecajs/seneca-logentries-logger
+    - TEST_SUITE=senecajs/seneca-joi
+    - TEST_SUITE=senecajs/seneca-beanstalk-transport
 
 
 before_script:

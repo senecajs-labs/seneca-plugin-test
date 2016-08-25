@@ -15,7 +15,7 @@ env:
 
   matrix:
     # plugins to test
-    - TEST_SUITE=senecajs/seneca
+    #- TEST_SUITE=senecajs/seneca
     - TEST_SUITE=senecajs/gate-executor
     - TEST_SUITE=senecajs/seneca-parambulator
     - TEST_SUITE=senecajs/seneca-basic

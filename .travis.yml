@@ -42,7 +42,6 @@ env:
     - TEST_SUITE=senecajs/seneca-mesh
     - TEST_SUITE=senecajs/seneca-user
     - TEST_SUITE=senecajs/seneca-web
-    - TEST_SUITE=senecajs/seneca-mvp
     - TEST_SUITE=senecajs/seneca-auth
     - TEST_SUITE=senecajs/seneca-logstash-logger
     - TEST_SUITE=senecajs/seneca-pino-logger

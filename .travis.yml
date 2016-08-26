@@ -9,7 +9,7 @@ node_js:
 env:
   global:
     # get the latest code from master
-    - SENECA_VER=senecajs/seneca#seneca3
+    - SENECA_VER=senecajs/seneca
     # to clone a specific tagged version set the version like the following:
     # - SENECA_VER=senecajs/seneca#v1.3.0
 
